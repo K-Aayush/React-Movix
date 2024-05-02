@@ -2,6 +2,18 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchDataFromApi } from "./utils/api"
 import { getApiConfiguration } from "./store/homeSlice"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
+import Home from './pages/home/Home';
+import Explore from './pages/explore/Explore';
+import Details from './pages/details/Details';
+import SearchResult from './pages/searchResult/SearchResult';
+import PageNotFound from './pages/404/PageNotFound';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+
+
 
 function App() {
 
@@ -21,9 +33,15 @@ function App() {
   }
 
   return (
-    <div className='App'>App
-      {url?.total_pages}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/:mediaType/:id' element={<Details />} />
+        <Route path='/search/:query' element={<SearchResult />} />
+        <Route path='/explore/:mediaType' element={<Explore />} />
+        <Route path='*' element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
