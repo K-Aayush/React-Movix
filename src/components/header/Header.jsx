@@ -15,12 +15,27 @@ const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [query, setQuery] = useState("");
   const [showSearch, setShowSearch] = useState("");
-  
+
   const navigate = useNavigate();
   const location = useLocation();
 
+
+
   return (
-    <div>Header</div>
+    <header className="header">
+      <ContentWrapper>
+        <div className="logo">
+          <img src={logo} alt="" />
+        </div>
+        <ul className="menuItems">
+          <li className="menuItem">Movies</li>
+          <li className="menuItem">TV Shows</li>
+          <li className="menuItem">
+            <HiOutlineSearch />
+          </li>
+        </ul>
+      </ContentWrapper>
+    </header>
   )
 }
 
