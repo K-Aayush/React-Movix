@@ -19,7 +19,13 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const openSearch = () => {
 
+  }
+
+  const openMobileMenu = () => {
+    
+  }
 
   return (
     <header className="header">
@@ -34,6 +40,15 @@ const Header = () => {
             <HiOutlineSearch />
           </li>
         </ul>
+
+        <div className="mobileMenuItems">
+          <HiOutlineSearch />
+          {mobileMenu ? (
+            <VscChromeClose />
+          ) : (
+            <SlMenu />
+          )}
+        </div>
       </ContentWrapper>
     </header>
   )
